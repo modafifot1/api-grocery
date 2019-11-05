@@ -1,0 +1,88 @@
+{
+  "users": [
+    {
+      "id": "abc123",
+      "username": "modafifot",
+      "passsword": "aaa123",
+      "posts": ["W7c7m2A9"],
+      "followings": [],
+      "followers": []
+    },
+    {
+      "username": "moda123",
+      "password": "0123",
+      "id": "ZkeKQRe6",
+      "followers": [],
+      "followings": [],
+      "posts": []
+    },
+    {
+      "username": "aaa123789",
+      "password": "0123",
+      "id": "vTl1YmhZ",
+      "followers": [],
+      "followings": [],
+      "posts": []
+    }
+  ],
+  "posts": [
+    {
+      "id": "kkkkk",
+      "title": "developer",
+      "description": "I love developer!",
+      "likes": [],
+      "shares": [],
+      "comments": []
+    },
+    {
+      "tilte": "test-api-second",
+      "description": "create second post!",
+      "id": "yVE3YpV7",
+      "comments": [],
+      "shares": [],
+      "likes": []
+    },
+    {
+      "tilte": "test-api-third",
+      "description": "create third post!",
+      "id": "5XnbF08U",
+      "userId": "abc123",
+      "comments": [],
+      "shares": [],
+      "likes": []
+    },
+    {
+      "tilte": "test-api-fourth",
+      "description": "create fourth post!",
+      "id": "SFQ-PQKg",
+      "userId": "abc123",
+      "comments": [],
+      "shares": [],
+      "likes": []
+    },
+    {
+      "tilte": "test-api-fourth",
+      "description": "create fourth post!",
+      "id": "W7c7m2A9",
+      "userId": "abc123",
+      "comments": ["BD6T0wR_", "zDmpWjNa"],
+      "shares": [],
+      "likes": [],
+      "content": "change comment"
+    }
+  ],
+  "comments": [
+    {
+      "id": "lwEWuUaC",
+      "isPost": "W7c7m2A9",
+      "userId": "abc123",
+      "content": "firstcomment"
+    },
+    {
+      "id": "zDmpWjNa",
+      "isPost": "W7c7m2A9",
+      "userId": "abc123",
+      "content": "second comment"
+    }
+  ]
+}

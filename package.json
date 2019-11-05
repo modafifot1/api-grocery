@@ -1,0 +1,39 @@
+{
+  "name": "api-instagram",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "cookie-parser": "^1.4.4",
+    "express": "^4.17.1",
+    "http-status-codes": "^1.4.0",
+    "husky": "^3.0.9",
+    "lowdb": "^1.0.0",
+    "nodemon": "^1.19.4",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^2.0.0",
+    "shortid": "^2.2.15"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": " nodemon --inspect index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/modafifot1/Api-instagram.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/modafifot1/Api-instagram/issues"
+  },
+  "homepage": "https://github.com/modafifot1/Api-instagram#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  }
+}
