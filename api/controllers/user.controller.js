@@ -1,63 +1,48 @@
-const db = require("../../db");
-const shortid = require("shortid");
 const httpStatus = require("http-status-codes");
-module.exports.index = (req, res) => {
-  const users = db.get("users").value();
+const User = require("../../models/user.model");
+
+module.exports.index = async (req, res) => {
+  const users = await User.find();
   res.json(users);
 };
-module.exports.get = (req, res) => {
+module.exports.get = async (req, res) => {
   const id = req.params.id;
-  const user = db
-    .get("users")
-    .find({ id: id })
-    .value();
+  const user = await User.find({ _id: id });
   if (!user) {
     res.send(httpStatus.NOT_FOUND).end();
     return;
   }
   res.json(user);
 };
-module.exports.login = (req, res) => {
-  const username = req.body.username;
-  const user = db
-    .get("users")
-    .find({ username: username })
-    .value();
-  if (!user) {
-    res.redirect("/users/login");
-    return;
-  }
-  if (user.password !== req.body.password) {
-    res.redirect("/users/login");
-    return;
-  }
-  res.cookie("userId", user.id, {
-    signed: true
+module.exports.create = async (req, res) => {
+  const name = req.body.name;
+  const phone = parseInt(req.body.phone);
+  const user = await User.insertMany({
+    name: name,
+    phone: phone
   });
-  res.redirect("/api/users/" + user.id);
-};
-module.exports.create = (req, res) => {
-  req.body.id = shortid();
-  req.body.posts = req.body.followings = req.body.followers = [];
-  db.get("users")
-    .push(req.body)
-    .write();
-  res.json(req.body);
+  res.json(user);
 };
 module.exports.update = (req, res) => {
   const id = req.params.id;
-  let user = db
-    .get("users")
-    .find({ id: id })
-    .value();
-  if (!user) {
-    res.send(httpStatus.NOT_FOUND).end();
-    return;
-  }
-  user = db
-    .get("users")
-    .find({ id: id })
-    .assign(req.body)
-    .write();
-  res.json(user);
+  req.body.phone = parseInt(req.body.phone);
+  let user = User.findByIdAndUpdate(id, req.body, { new: true }, (err, doc) => {
+    if (err) {
+      res.sendStatus(httpStatus.NOT_FOUND).end();
+      return;
+    } else {
+      res.json(doc);
+    }
+  });
+};
+module.exports.delete = (req, res) => {
+  const id = req.params.id;
+  User.deleteOne({ _id: id }, err => {
+    if (err) {
+      res.send(httpStatus.NOT_FOUND).end();
+      return;
+    } else {
+      res.send(httpStatus.ok);
+    }
+  });
 };

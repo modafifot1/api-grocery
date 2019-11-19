@@ -1,4 +1,4 @@
-# Api-instagram
+# api-grocery
 
 ## Installation
 npm install

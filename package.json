@@ -9,6 +9,7 @@
     "http-status-codes": "^1.4.0",
     "husky": "^3.0.9",
     "lowdb": "^1.0.0",
+    "mongoose": "^5.7.8",
     "nodemon": "^1.19.4",
     "prettier": "^1.18.2",
     "pretty-quick": "^2.0.0",
